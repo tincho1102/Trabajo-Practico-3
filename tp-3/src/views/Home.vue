@@ -1,17 +1,23 @@
 <template>
-  <div>
-    <Carousel></Carousel>
-
-  </div>
+    <div>
+        <Carousel></Carousel>
+        <NoticiasArglist></NoticiasArglist>
+    </div>
 </template>
 <script>
 import Carousel from '../components/Carousel'
+import NoticiasArglist from '../components/NoticiasArglist'
 export default {
-  components: {
-    Carousel
-  }
+    name: 'Argentina',
+    components:{
+        NoticiasArglist,
+        Carousel,
+    }
+    
 }
 </script>
+
 <style>
   
 </style>
+
