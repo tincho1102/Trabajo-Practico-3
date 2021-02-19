@@ -1,14 +1,19 @@
 <template>
-  <div class="home">
-  </div>
-</template>
+    <div>
 
+        <NoticiasArglist></NoticiasArglist>
+    </div>
+</template>
 <script>
 
+
+import NoticiasArglist from '../components/NoticiasArglist'
 export default {
-  name: 'Home',
-  components: {
+    name: 'Argentina',
+    components:{
+        NoticiasArglist,
+        
+    }
     
-  }
 }
 </script>
