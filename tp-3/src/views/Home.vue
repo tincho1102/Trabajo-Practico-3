@@ -1,13 +1,17 @@
 <template>
   <div>
     <Carousel></Carousel>
+    <NoticiasArglist></NoticiasArglist>
   </div>
 </template>
 <script>
-import Carousel from '../components/Carousel'
+  import Carousel from '../components/Carousel'
+  import NoticiasArglist from '../components/NoticiasArglist'
 export default {
-  components: {
-    Carousel
+  name: 'Argentina',
+    components:{
+        NoticiasArglist,
+        Carousel,
   }
 }
 </script>
