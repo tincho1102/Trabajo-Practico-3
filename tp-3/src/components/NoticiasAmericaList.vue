@@ -2,7 +2,8 @@
     <div class="d-flex flex-wrap justify-content-around mt-4">
         <NoticiasAmerica  v-for="NoticiasAmerica in NoticiasAmerica"
             :key="NoticiasAmerica.id"
-            :NoticiasAmerica="NoticiasAmerica"></NoticiasAmerica>
+            :NoticiasAmerica="NoticiasAmerica">
+         </NoticiasAmerica>
     </div>
    
 </template>
@@ -24,7 +25,8 @@ export default {
     },
     methods: {
         getNoticiasAmerica() {
-            fetch('https://602819e8dd4afd001754af77.mockapi.io/NoticiasAmerica')
+
+            fetch('https://602819e8dd4afd001754af77.mockapi.io/:NoticiasAmer')
                 .then(resp => resp.json())
                 .then(data => {
                     this.NoticiasAmerica = data;
@@ -35,5 +37,5 @@ export default {
 }
 </script>
 <style lang="">
-    
+   
 </style>
