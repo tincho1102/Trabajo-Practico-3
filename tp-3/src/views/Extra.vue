@@ -1,21 +1,21 @@
 <template>
   <div>
      <Table>
-        v-for="contact in allContacts"
-        :key="contact.id"
-        :contactId="contact.id"
-        :contactName="contact.name"
-        :contactLastName="contact.lastName"
-        :contactPhone="contact.phone"
-        :contactEmail="contact.email"
-        :isFavorite="contact.isFavorite"
-        @delete-contact="openDeleteContact"
-        @edit-contact="openEditContact"
+        v-for="pais in allPaises"
+        :key="pais.id"
+        :paisId="pais.id"
+        :paisNombre="pais.Nombre"
+        :paisSalario="pais.Salario"
+        :paisIphone="pais.Iphone"
+        :paisCanasta="pais.Canasta"
+        :paisIndice="pais.Indice"
+        @delete-Pais="openDeletePais"
+        @edit-Pais="openEditPais"
       >
       </Table>
       <Modal v-if="showEditModal">
         <template v-slot:title>
-          <h1>Edit contact</h1>
+          <h1>Edit Pais</h1>
         </template>
 
         <template v-slot:body>
@@ -39,7 +39,7 @@
           <button @click="editContact">Edit</button>
         </template>
       </Modal>
-      <Modal v-if="showDeleteModal" :contact="selectedContact">
+      <Modal v-if="showDeleteModal" :contact="selectedPais">
         <template v-slot:title>
           <h1>Titulo Eliminar</h1>
         </template>
@@ -49,7 +49,7 @@
         </template>
 
         <template v-slot:footer>
-          <button @click="deleteContact">Delete</button>
+          <button @click="deletePais">Delete</button>
         </template>
       </Modal>
 
