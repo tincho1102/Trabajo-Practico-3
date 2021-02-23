@@ -59,7 +59,7 @@ export default {
       required: true,
     },
  
-    contactId: {
+    paisId: {
       type: String,
       required: true,
     },

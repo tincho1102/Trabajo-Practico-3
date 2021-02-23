@@ -1,14 +1,14 @@
 <template>
   <div>
-     <Table>
+     <Table
         v-for="paises in allPaises"
-        :key="pais.id"
+        :key="paises.id"
         :paisId="pais.id"
-        :paisNombre="pais.Nombre"
-        :paisSalario="pais.Salario"
-        :paisIphone="pais.Iphone"
-        :paisCanasta="pais.Canasta"
-        :paisIndice="pais.Indice"
+        :paisNombre="pais.nombre"
+        :paisSalario="pais.salario"
+        :paisIphone="pais.iphone"
+        :paisCanasta="pais.canasta"
+        :paisIndice="pais.indice"
         @delete-Pais="openDeletePais"
         @edit-Pais="openEditPais">
         
@@ -21,22 +21,22 @@
         <template v-slot:body>
           <div>
             <label for="nombre">Pais</label>    
-            <input type="text" id="nombre" v-model="selectedPais.Nombre">
+            <input type="text" id="nombre" v-model="selectedPais.nombre">
             <label for="Salario">Last Name</label>
-            <input type="text" id="salario" v-model="selectedPais.Salario">
+            <input type="text" id="salario" v-model="selectedPais.salario">
              <label for="play5">Play 5</label>
-            <input type="text" id="play5" v-model="selectedPais.Play5">
+            <input type="text" id="play5" v-model="selectedPais.play5">
              <label for="iphone">Iphone</label>
-            <input type="text" id="iphone" v-model="selectedPais.Iphone">
+            <input type="text" id="iphone" v-model="selectedPais.iphone">
              <label for="canasta">Canasta</label>
-            <input type="text" id="canasta" v-model="selectedPais.Canasta">
+            <input type="text" id="canasta" v-model="selectedPais.canasta">
             <label for="Indice">Indice</label>
-            <input type="text" id="indice" v-model="selectedPais.Indice">
+            <input type="text" id="indice" v-model="selectedPais.indice">
           </div>
         </template>
 
         <template v-slot:footer>
-          <button @click="editContact">Edit</button>
+          <button @click="editPais">Edit</button>
         </template>
       </Modal>
       <Modal v-if="showDeleteModal" :contact="selectedPais">
@@ -76,7 +76,7 @@ export default {
  
       showEditModal: false,
       showDeleteModal: false,
-      selectedContact: {}
+      selectedPais: {}
     };
   },
 
@@ -84,20 +84,20 @@ export default {
     this.$store.dispatch('getContacts')
   },
   methods: {
-    openEditContact(id) {
-      this.selectedContact = {...this.allContacts.filter(contact => contact.id === id)[0]}
+    openEditPais(id) {
+      this.selectedPais = {...this.allPais.filter(pais => pais.id === id)[0]}
       this.showEditModal = true
     },
-    openDeleteContact(id) {
+    openDeletePais(id) {
       this.showDeleteModal = true
-      this.selectedContact = {...this.allContacts.filter(contact => contact.id === id)[0]}
+      this.selectedPais = {...this.allPaises.filter(pais => pais.id === id)[0]}
     },
-    editContact() {
+    editPais() {
       this.showEditModal = false;
-      this.$store.commit('editContact', {contact: this.selectedContact})
+      this.$store.commit('editPais', {pais: this.selectedPais})
     },
     deleteContact() {
-      this.$store.commit('deleteContact', {contactId: this.selectedContact.id})
+      this.$store.commit('deleteContact', {paisId: this.selectedPais.id})
       this.showDeleteModal = false
     }
   }

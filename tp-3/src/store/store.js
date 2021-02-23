@@ -33,7 +33,7 @@ export const store = new Vuex.Store({
     newPais(state, payload) {
       state.name = payload.newPais;
     },
-    setContacts(state, payload) {
+    setPaises(state, payload) {
       const paises = [];
       const paisesKeys = Object.keys(payload.paises);
       paisesKeys.forEach(key => {
@@ -53,17 +53,17 @@ export const store = new Vuex.Store({
     addPais({ getters }, payload) {
       const token = getters.getToken;
       console.log(token);
-      fetch(`https://602819e8dd4afd001754af77.mockapi.io/Paises${token}`, {
+      fetch(`https://602819e8dd4afd001754af77.mockapi.io/paises${token}`, {
         method: 'POST',
         body: JSON.stringify(payload.newContact)
       });
     },
     getPaises({commit}) {
-      fetch('https://602819e8dd4afd001754af77.mockapi.io/Paises')
+      fetch('https://602819e8dd4afd001754af77.mockapi.io/paises')
       .then(res => res.json())
       .then(data => commit('setPaises', {paises: data}))
     },
     
   },
-});
+)
 
