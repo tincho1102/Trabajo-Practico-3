@@ -2,16 +2,17 @@
   <div class="container-fluid">
     <div class="row mb-4">
       <div class="col-md-8">
-      <Carousel></Carousel>
+        <Carousel></Carousel>
       </div>
       <div class="offset col-md-1"></div>
       <div class="col-md-3">
-      <CardNotice></CardNotice>
+        <CardNotice></CardNotice>
       </div>
     </div>
     <NoticiasArglist></NoticiasArglist>
   </div>
 </template>
+
 <script>
   import Carousel from '../components/Carousel'
   import NoticiasArglist from '../components/NoticiasArglist'
@@ -25,6 +26,8 @@ export default {
   }
 }
 </script>
+
 <style>
   
 </style>
+
