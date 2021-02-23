@@ -31,7 +31,7 @@
              <label for="canasta">Canasta</label>
             <input type="text" id="canasta" v-model="selectedPais.canasta">
             <label for="Indice">Indice</label>
-            <input type="text" id="indice" v-model="selectedPais.indice">
+            <input type="text" id="indice" v-model="selectedPais.ndice">
           </div>
         </template>
 
@@ -81,7 +81,7 @@ export default {
   },
 
   mounted() {
-    this.$store.dispatch('getContacts')
+    this.$store.dispatch('allPaises')
   },
   methods: {
     openEditPais(id) {
@@ -96,7 +96,7 @@ export default {
       this.showEditModal = false;
       this.$store.commit('editPais', {pais: this.selectedPais})
     },
-    deleteContact() {
+    deletePais() {
       this.$store.commit('deleteContact', {paisId: this.selectedPais.id})
       this.showDeleteModal = false
     }

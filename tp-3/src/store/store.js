@@ -43,19 +43,19 @@ export const store = new Vuex.Store({
     },
 
   },
-  getters: {
+  getters : {
     allPaises(state) {
-      return state.paises;
+      return state.Paises;
     },
 
   },
-  actions, {
+  actions: {
     addPais({ getters }, payload) {
       const token = getters.getToken;
       console.log(token);
       fetch(`https://602819e8dd4afd001754af77.mockapi.io/paises${token}`, {
         method: 'POST',
-        body: JSON.stringify(payload.newContact)
+        body: JSON.stringify(payload.newPais)
       });
     },
     getPaises({commit}) {
