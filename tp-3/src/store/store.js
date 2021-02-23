@@ -43,7 +43,7 @@ export const store = new Vuex.Store({
     },
 
   },
-  getters , {
+  getters: {
     allPaises(state) {
       return state.paises;
     },
