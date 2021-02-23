@@ -3,7 +3,6 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th scope="col">Pais</th>
                     <th scope="col">Nombre</th>
                   <th scope="col">Salario</th>
                     <th scope="col">Play 5</th>
@@ -14,17 +13,16 @@
                 </tr>
             </thead>
             <tbody>
-               <tr v-for="Paises in Paises" :key="Paises.Paises">
-                   <th scope="row">{{Paises.id}}</th>
-                    <td>{{Paises.Nombre}}</td>
-                    <td>{{Paises.Salario}}</td>
-                    <td>{{Paises.Play5}}</td>
-                    <td>{{Paises.Iphone}}</td>
-                    <td>{{Paises.Canasta}}</td>
-                    <td>{{Paises.Indice}}</td>
+               <tr>
+                    <td>{{PaisNombre}}</td>
+                    <td>{{PaisSalario}}</td>
+                    <td>{{PaisPlay5}}</td>
+                    <td>{{PaisIphone}}</td>
+                    <td>{{PaisCanasta}}</td>
+                    <td>{{paisIndice}}</td>
                     <td>
-                        <button>Eliminar</button>
-                        <button>Editar</button>
+                          <button @click="deletePais">Eliminar</button>
+                         <button @click="editPais">Editar</button>
                     </td>
                 </tr>
             </tbody>
@@ -35,29 +33,46 @@
 <script>
 
 export default {
-  components: {  },
-
- data() {
-        return {
-            Paises: []
-        }
+ props: {
+    paisNombre: {
+      type: String,
+      required: true,
     },
-    mounted() {
-        this.getpaises();
+    paisSalario: {
+      type: String,
+      required: true,
     },
-    methods: {
-        getpaises() {
-            fetch('https://602819e8dd4afd001754af77.mockapi.io/paises')
-                .then(resp => resp.json())
-                .then(data => {
-                    this.Paises = data;
-                    console.log(this.Paises);
-                    console.log(data);
-                })
-        },
-      
+    paisIphone: {
+      type: String,
+      required: true,
     },
-}
+    paisPlay5: {
+      type: String,
+      required: true,
+    },
+   paisCanasta: {
+      type: String,
+      required: true,
+    },
+   paisIndice: {
+      type: String,
+      required: true,
+    },
+ 
+    paisId: {
+      type: String,
+      required: true,
+    },
+  },
+  methods: {
+    deletePais() {
+      this.$emit('delete-pais', this.paisId)
+    },
+    editPais() {
+      this.$emit('edit-pais', this.paisId)
+    },
+  },
+};
 
 </script>
 
