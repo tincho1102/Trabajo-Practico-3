@@ -1,7 +1,7 @@
 <template>
   <div>
      <Table>
-        v-for="pais in allPaises"
+        v-for="paises in allPaises"
         :key="pais.id"
         :paisId="pais.id"
         :paisNombre="pais.Nombre"
@@ -10,8 +10,8 @@
         :paisCanasta="pais.Canasta"
         :paisIndice="pais.Indice"
         @delete-Pais="openDeletePais"
-        @edit-Pais="openEditPais"
-      >
+        @edit-Pais="openEditPais">
+        
       </Table>
       <Modal v-if="showEditModal">
         <template v-slot:title>
@@ -79,7 +79,7 @@ export default {
       selectedContact: {}
     };
   },
-  // Para obtener data desde una api ni bien se monte el componente
+
   mounted() {
     this.$store.dispatch('getContacts')
   },
