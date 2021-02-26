@@ -1,6 +1,6 @@
 <template>
   <div  class="container">
-    <table  class="table table-dark">
+    <table  class="table table-success table-striped">
       <thead>
         <tr>
           <th scope="col">ID</th>
@@ -33,33 +33,35 @@
       <template v-slot:title>Agregar pais</template>
 
       <template v-slot:body>
-        <div class="form-group row justify-content-center">
-          <label for="inp-id"> Id </label
-          ><input id="inp-id" v-model="selectedPais.id" />
-        </div>
-        <div class="form-group row justify-content-center">
-          <label for="inp-GPU_Name">Nombre</label
-          ><input id="inp-GPU_Name" v-model="selectedPais.nombre" />
-        </div>
-        <div class="form-group row justify-content-center">
-          <label for="inp-TEST_Date">Salario</label
-          ><input id="inp-TEST_Date" v-model="selectedPais.salario" />
-        </div>
-        <div class="form-group row justify-content-center ">
-          <label for="inp-G3D_Mark">Play</label
-          ><input id="inp-G3D_Mark" v-model="selectedPais.play5" />
-        </div>
-        <div class="form-group row justify-content-center">
-          <label for="inp-G2D_Mark">Iphone</label
-          ><input id="inp-G2D_Mark" v-model="selectedPais.iphone" />
-        </div>
-         <div class="form-group row justify-content-center">
-          <label for="inp-G2D_Mark">Canasta</label
-          ><input id="inp-G2D_Mark" v-model="selectedPais.canasta" />
-        </div>
-         <div class="form-group row justify-content-center">
-          <label for="inp-G2D_Mark">Indice</label
-          ><input id="inp-G2D_Mark" v-model="selectedPais.indice" />
+        <div class="container-fluid ">
+          <div class="form-group row justify-content-around">
+            <label for="inp-id"> Id </label
+            ><input id="inp-id" v-model="selectedPais.id" />
+          </div>
+          <div class="form-group row justify-content-around">
+            <label for="inp-Nombre">Pais</label
+            ><input id="inp-Nombre" v-model="selectedPais.nombre" />
+          </div>
+          <div class="form-group row justify-content-around">
+            <label for="inp-Salario">Salario</label
+            ><input id="inp-Salario" v-model="selectedPais.salario" />
+          </div>
+          <div class="form-group row justify-content-around ">
+            <label for="inp-play">Play 5</label
+            ><input id="inp-play" v-model="selectedPais.play5" />
+          </div>
+          <div class="form-group row justify-content-around">
+            <label for="inp-iphone">Iphone</label
+            ><input id="inp-iphone" v-model="selectedPais.iphone" />
+          </div>
+          <div class="form-group row justify-content-around">
+            <label for="inp-canasta">Canasta</label
+            ><input id="inp-canasta" v-model="selectedPais.canasta" />
+          </div>
+          <div class="form-group row justify-content-around">
+            <label for="inp-indice">Indice</label
+            ><input id="inp-indice" v-model="selectedPais.indice" />
+          </div>
         </div>
       </template>
       <template v-slot:footer>
@@ -81,41 +83,53 @@
         </template>
 
         <template v-slot:body>
-          <div>
-            <label for="nombre">Nombre</label>    
-            <input type="text" id="nombre" v-model="selectedPais.nombre">
-            <label for="salario">Salario</label>
-            <input type="text" id="salario" v-model="selectedPais.salario">
-            <label for="play">Play 5</label>
-            <input type="text" id="play" v-model="selectedPais.play5">
-            <label for="iphone">iphone</label>
-            <input type="text" id="iphone" v-model="selectedPais.iphone">
-            <label for="canasta">Canasta</label>
-            <input type="text" id="canasta" v-model="selectedPais.canasta">
-               <label for="indice">Indice</label>
-            <input type="text" id="indice" v-model="selectedPais.indice">
+          <div class="container">
+            <div class="form-group row justify-content-around">
+              <label for="nombre">Pais :</label>    
+              <input type="text" id="nombre" v-model="selectedPais.nombre">
+            </div>
+            <div class="form-group row justify-content-around">
+              <label for="salario">Salario :</label>
+              <input type="text" id="salario" v-model="selectedPais.salario">
+            </div>
+            <div class="form-group row justify-content-around">
+              <label for="play">Play 5 :</label>
+              <input type="text" id="play" v-model="selectedPais.play5">
+            </div>
+            <div class="form-group row justify-content-around">
+              <label for="iphone">iphone :</label>
+              <input type="text" id="iphone" v-model="selectedPais.iphone">
+            </div>
+            <div class="form-group row justify-content-around">
+              <label for="canasta">Canasta :</label>
+              <input type="text" id="canasta" v-model="selectedPais.canasta">
+            </div>
+            <div class="form-group row justify-content-around">
+              <label for="indice">Indice :</label>
+              <input type="text" id="indice" v-model="selectedPais.indice">
+            </div>
           </div>
         </template>
 
         <template v-slot:footer>
           <button class="btn btn-secondary" @click="showEditModal = false">Cancelar</button>
-          <button class="btn btn-secondary" @click="editPais">Edit</button>
+          <button class="btn btn-secondary" @click="editPais">Editar</button>
         </template>
       </Modal>
       <!-- Delete Modal -->
       <Modal v-if="showDeleteModal" :pais="selectedPais">
         <template v-slot:title>
-          <div class="row"> 
-            <h5 class="card-title">¿Seguro que desea eliminar esta fila?</h5>
+          <div > 
+            <h5 class="card-title justify-content-center">¿Seguro que desea eliminar esta fila?</h5>
            </div> 
         </template>
 
         <template v-slot:body>
-          <p>Esta seguro de eliminarlo?</p>
+          <p>En caso de cancelar el pais volvera a su lugar</p>
         </template>
 
         <template v-slot:footer>
-          <button class="btn btn-secondary" @click="deletePais">Delete</button>
+          <button class="btn btn-secondary" @click="deletePais">Eliminar</button>
           <button class="btn btn-secondary" @ @click="showDeleteModal = false">Cancelar</button>
         </template>
       </Modal>

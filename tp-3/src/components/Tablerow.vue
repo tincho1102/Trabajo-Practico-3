@@ -1,8 +1,8 @@
 <template>
-    <div>
+ 
         <tbody>
             <tr>
-                <th scope="row">{{ paisId }}</th>
+                <td>{{ paisId }}</td>
                 <td>{{ paisNombre }}</td>
                 <td>{{ paisSalario }}</td>
                 <td>{{ paisPlay }}</td>
@@ -15,7 +15,7 @@
                 </td>
             </tr>
         </tbody>
-    </div>
+
 </template>
 
 <script>
