@@ -5,20 +5,17 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
-    Paises: [],
-    user: {
-      token: null,
-      userId: null
-    }
+    paises: [],
+
   },
   mutations: {
     deletePais(state, payload) {
-      state.pais = state.pais.filter(
+      state.paises = state.paises.filter(
         (pais) => pais.id !== payload.paisId
       );
     },
     editPais(state, payload) {
-      state.pais = state.pais.map(
+      state.paises = state.paises.map(
         (pais) => {
           if (pais.id == payload.pais.id) {
             return payload.pais
@@ -28,20 +25,17 @@ export const store = new Vuex.Store({
         }
       );
     },
-
-    },
-    newPais(state, payload) {
-      state.name = payload.newPais;
-    },
-    setPaises(state, payload) {
+    setPais(state, payload) {
       const paises = [];
-      const paisesKeys = Object.keys(payload.paises);
-      paisesKeys.forEach(key => {
+      const paisKeys = Object.keys(payload.paises);
+      paisKeys.forEach(key => {
         paises.push(payload.paises[key])
       })
       state.paises = paises
     },
-
+    addPais(state, payload) {
+      state.paises.push(payload.pais);
+    },
   },
   getters: {
     allPaises(state) {
@@ -49,7 +43,7 @@ export const store = new Vuex.Store({
     },
 
   },
-  actions, {
+  actions:{
     addPais({ getters }, payload) {
       const token = getters.getToken;
       console.log(token);
@@ -61,9 +55,9 @@ export const store = new Vuex.Store({
     getPaises({commit}) {
       fetch('https://602819e8dd4afd001754af77.mockapi.io/paises')
       .then(res => res.json())
-      .then(data => commit('setPaises', {paises: data}))
+      .then(data => commit('setPais', {paises: data}))
     },
     
   },
-)
+})
 
